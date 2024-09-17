@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/pokemon-0.0.1-SNAPSHOT.jar app.jar
 
 # Expõe a porta 25000
-EXPOSE 8080
+EXPOSE 25000
 
 # Comando para iniciar a aplicação
-ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=8080"]
+ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=25000"]
