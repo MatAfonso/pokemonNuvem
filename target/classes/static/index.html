@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Pokémons</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Pokémons - Projeto 01</h1>
+    <table id="pokemonTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Vida</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Os dados serão inseridos aqui -->
+        </tbody>
+    </table>
+
+    <script>
+        fetch('/pokemons')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.querySelector("#pokemonTable tbody");
+                data.forEach(pokemon => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${pokemon.nome}</td>
+                        <td>${pokemon.vida}</td>
+                        <td>${pokemon.tipo}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            });
+    </script>
+</body>
+</html>
