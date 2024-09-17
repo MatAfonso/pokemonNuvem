@@ -1,0 +1,25 @@
+version: '3'
+services:
+  back-end:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Aponta para o Dockerfile do back-end na raiz
+    container_name: back-end
+    ports:
+      - "25000:8080"  # O back-end expõe a API na porta 25000 para o host
+    networks:
+      - minha-rede
+
+  front-end:
+    build:
+      context: src/main/resources/static  # Aponta para o Dockerfile do front-end na pasta static
+      dockerfile: Dockerfile
+    container_name: front-end
+    ports:
+      - "8080:80"  # O front-end é exposto na porta 8080
+    networks:
+      - minha-rede
+
+networks:
+  minha-rede:
+    driver: bridge
