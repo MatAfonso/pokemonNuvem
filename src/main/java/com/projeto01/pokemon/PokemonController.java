@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://35.175.241.77:8080")
 public class PokemonController {
 
     @GetMapping("/pokemons")
